@@ -1,19 +1,19 @@
 .jogo {
   margin: 0 auto;
-  margin-top: 59px;
-  width: 934px;
-  height: 466px;
+  margin-top: 39px;
+  width: 70%;
+  height: auto;
   display: flex;
   justify-content: space-between;
 }
 
 .jogo img {
-  width: 400px;
-  height: 466px;
+  width: 35%;
+  height: auto;
 }
 
-.jogo > .botao {
-  width: 200px;
+.jogo .botao {
+  width: 25%;
   height: 60px;
   border-radius: 15px;
   background-color: green;
@@ -29,7 +29,7 @@
     margin: 0 auto;
     display: flex;
     flex-wrap: wrap;
-    margin-top: 60px;
+    margin-top: 40px;
 }
 
 .tecla{
@@ -46,10 +46,9 @@
     
     width: 624px;
     height: 40px;
-    margin: 60px auto;
-    margin-top: 60px;
+    margin: 20px auto;
     display: flex;
-    justify-content: space-between;
+    justify-content: space-around;
     align-items: center;
 }
 
@@ -82,13 +81,7 @@
   .jogo img {
     width: 80%; /* Ajusta a largura da imagem para ocupar 80% da largura da tela */
     height: auto; /* Mantém a proporção da imagem */
-    margin-bottom: 20px; /* Adiciona um espaço entre a imagem e o botão */
-  }
-
-  .jogo > .botao {
-    width: 80%; /* Ajusta a largura do botão para ocupar 80% da largura da tela */
-    height: 50px; /* Reduz a altura do botão para melhorar a aparência em dispositivos móveis */
-    font-size: 14px; /* Reduz o tamanho da fonte para melhorar a aparência em dispositivos móveis */
+    margin-bottom: 10px; /* Adiciona um espaço entre a imagem e o botão */
   }
 
   .jogo {
@@ -98,11 +91,13 @@
   }
 
   .jogo img {
-    width: 45%; /* Define a largura da imagem */
+    width: 35%; 
   }
 
   .jogo > .botao {
-    width: 45%; /* Define a largura do botão */
+    width: 25%;
+    height: 50px; 
+    font-size: 14px; 
   }
 }
 
