@@ -1,0 +1,108 @@
+.jogo {
+  margin: 0 auto;
+  margin-top: 59px;
+  width: 934px;
+  height: 466px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.jogo img {
+  width: 400px;
+  height: 466px;
+}
+
+.jogo > .botao {
+  width: 200px;
+  height: 60px;
+  border-radius: 15px;
+  background-color: green;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.teclado{
+    width: 664px;
+    height: 91px;
+    margin: 0 auto;
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: 60px;
+}
+
+.tecla{
+    width: 40px;
+    height: 40px;
+    background-color: #7AA7C7;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-right: 10px;
+}
+
+.chute{
+    
+    width: 624px;
+    height: 40px;
+    margin: 60px auto;
+    margin-top: 60px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.chute input{
+    width: 353px;
+    height: 30px;
+}
+
+.botao-chute{
+    width: 100px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #7AA7C7;
+    color: #3C76A1;
+    border-radius: 3px;
+}
+
+/* Estilos para telas menores que 768px (dispositivos móveis) */
+@media only screen and (max-width: 768px) {
+  .jogo {
+    margin-top: 20px;
+    width: 100%;
+    height: auto;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .jogo img {
+    width: 80%; /* Ajusta a largura da imagem para ocupar 80% da largura da tela */
+    height: auto; /* Mantém a proporção da imagem */
+    margin-bottom: 20px; /* Adiciona um espaço entre a imagem e o botão */
+  }
+
+  .jogo > .botao {
+    width: 80%; /* Ajusta a largura do botão para ocupar 80% da largura da tela */
+    height: 50px; /* Reduz a altura do botão para melhorar a aparência em dispositivos móveis */
+    font-size: 14px; /* Reduz o tamanho da fonte para melhorar a aparência em dispositivos móveis */
+  }
+
+  .jogo {
+    flex-direction: row; /* Ajusta a direção do flexbox para linha */
+    justify-content: space-between; /* Espaçamento entre a imagem e o botão */
+    align-items: center; /* Alinha os itens verticalmente */
+  }
+
+  .jogo img {
+    width: 45%; /* Define a largura da imagem */
+  }
+
+  .jogo > .botao {
+    width: 45%; /* Define a largura do botão */
+  }
+}
+
