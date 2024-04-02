@@ -12,6 +12,14 @@
   height: auto;
 }
 
+.palavra-escolhida{
+  width: 70%;
+  margin: 0 auto;
+  margin-top: 20px;
+  display: flex;
+  justify-content: end;
+}
+
 .jogo .botao {
   width: 25%;
   height: 60px;

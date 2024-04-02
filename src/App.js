@@ -1,7 +1,7 @@
 import Chute from "./components/Chute";
 import Jogo from "./components/Jogo";
 import Teclado from "./components/Teclado";
-import palavras from "./palavras";
+
 
 function App() {
   return (
