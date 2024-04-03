@@ -1,6 +1,6 @@
 import React from "react";
 
-export default function Teclado({ teclasAtivadas, letrasSelecionadas, setLetrasSelecionadas }) {
+export default function Teclado({ teclasAtivadas, letrasSelecionadas, setLetrasSelecionadas, escolherLetras }) {
   const alfabeto = [
     "a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m",
     "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"
@@ -14,6 +14,7 @@ export default function Teclado({ teclasAtivadas, letrasSelecionadas, setLetrasS
 
     // Adiciona a letra selecionada ao estado de letras selecionadas
     setLetrasSelecionadas([...letrasSelecionadas, letra]);
+    escolherLetras(letra)
   }
 
   return (
