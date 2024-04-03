@@ -102,6 +102,14 @@
   color: #798A9F;
 }
 
+.acertou {
+  color: green;
+}
+
+.errou {
+  color: red;
+}
+
 /* Estilos para telas menores que 768px (dispositivos móveis) */
 @media only screen and (max-width: 768px) {
   .jogo {

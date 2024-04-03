@@ -7,6 +7,7 @@ export default function Jogo() {
   const [teclasAtivadas, setTeclasAtivadas] = useState(false);
   const [letrasSelecionadas, setLetrasSelecionadas] = useState([]);
   const [erros, setErros] = useState(0);
+  const [jogoFinalizado, setJogoFinalizado] = useState(false);
 
   const imagensForca = [
     "assets/forca0.png",
@@ -25,6 +26,7 @@ export default function Jogo() {
     setTeclasAtivadas(true);
     setLetrasSelecionadas([]);
     setErros(0); // Reset da contagem de erros ao escolher uma nova palavra
+    setJogoFinalizado(false); // Reset do jogo finalizado
   }
 
   // Verifica se uma letra está presente na palavra escolhida
@@ -34,14 +36,31 @@ export default function Jogo() {
 
   // Adiciona a letra selecionada ao estado de letras selecionadas
   function escolherLetras(letra) {
-    if (!letrasSelecionadas.includes(letra)) {
+    if (!letrasSelecionadas.includes(letra) && !fimDeJogo()) {
       setLetrasSelecionadas([...letrasSelecionadas, letra]);
 
       if (!letraPresente(letra)) {
         // Incrementa a contagem de erros se a letra não estiver presente na palavra
         setErros(erros + 1);
       }
+
+      // Verifica se o jogo terminou após a seleção da letra
+      if (erros + 1 >= 6 || usuarioGanhou()) {
+        setJogoFinalizado(true);
+      }
     }
+  }
+
+  function usuarioGanhou() {
+    return palavraEscolhida.split("").every(letra => letrasSelecionadas.includes(letra))
+  }
+
+  function usuarioPerdeu() {
+    return erros >= 6;
+  }
+
+  function fimDeJogo() {
+    return jogoFinalizado || usuarioGanhou() || usuarioPerdeu();
   }
 
   return (
@@ -54,12 +73,16 @@ export default function Jogo() {
       </div>
       <div className="palavra-escolhida">
         {palavraEscolhida && (
-          <p>
-            {palavraEscolhida.split("").map((letra, index) => (
-              <span key={index}>
-                {letrasSelecionadas.includes(letra) || letra === " " ? letra : " _ "}
-              </span>
-            ))}
+          <p className={`${usuarioGanhou() ? "acertou" : ""} ${usuarioPerdeu() ? "errou" : ""}`}>
+            {usuarioPerdeu() ? (
+              <span>{palavraEscolhida}</span>
+            ) : (
+              palavraEscolhida.split("").map((letra, index) => (
+                <span key={index}>
+                  {letrasSelecionadas.includes(letra) || letra === " " ? letra : " _ "}
+                </span>
+              ))
+            )}
           </p>
         )}
       </div>
@@ -68,6 +91,7 @@ export default function Jogo() {
         letrasSelecionadas={letrasSelecionadas}
         setLetrasSelecionadas={setLetrasSelecionadas}
         escolherLetras={escolherLetras}
+        fimDeJogo={fimDeJogo}
       />
     </>
   );
