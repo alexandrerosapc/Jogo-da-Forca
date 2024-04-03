@@ -3,7 +3,7 @@ export default function Chute() {
     <div className="chute">
       <p>Já sei a palavra!</p>
       <input type="text" />
-      <div className="botao-chute">Chutar</div>
+      <div className="botao-chute desa">Chutar</div>
     </div>
   );
 }

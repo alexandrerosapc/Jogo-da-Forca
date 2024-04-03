@@ -1,3 +1,6 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,100..900;1,100..900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap");
+
 .jogo {
   margin: 0 auto;
   margin-top: 39px;
@@ -12,12 +15,15 @@
   height: auto;
 }
 
-.palavra-escolhida{
+.palavra-escolhida {
   width: 70%;
   margin: 0 auto;
   margin-top: 20px;
   display: flex;
   justify-content: end;
+  font-weight: 700;
+  font-family: "Noto Sans", sans-serif;
+  font-size: 50px;
 }
 
 .jogo .botao {
@@ -29,51 +35,68 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  font-weight: 700;
+  font-size: 20px;
+  font-family: "Roboto", sans-serif;
 }
 
-.teclado{
-    width: 664px;
-    height: 91px;
-    margin: 0 auto;
-    display: flex;
-    flex-wrap: wrap;
-    margin-top: 40px;
+.teclado {
+  width: 664px;
+  height: 91px;
+  margin: 0 auto;
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: 40px;
 }
 
-.tecla{
-    width: 40px;
-    height: 40px;
-    background-color: #7AA7C7;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-right: 10px;
+.tecla {
+  width: 40px;
+  height: 40px;
+  background-color: #E1ECF4;
+  color: #39739D;
+  font-weight: 700;
+  font-size: 16px;
+  font-family: "Roboto", sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-right: 10px;
 }
 
-.chute{
-    
-    width: 624px;
-    height: 40px;
-    margin: 20px auto;
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
+.chute {
+  width: 624px;
+  height: 40px;
+  font-weight: 400;
+  font-size: 20px;
+  font-family: "Roboto", sans-serif;
+  margin: 20px auto;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
 }
 
-.chute input{
-    width: 353px;
-    height: 30px;
+.chute input {
+  width: 353px;
+  height: 30px;
 }
 
-.botao-chute{
-    width: 100px;
-    height: 40px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background-color: #7AA7C7;
-    color: #3C76A1;
-    border-radius: 3px;
+.botao-chute {
+  width: 100px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #E1ECF4;
+  color: #3c76a1;
+  font-weight: 700;
+  font-size: 16px;
+  font-family: "Roboto", sans-serif;
+  border-radius: 3px;
+}
+
+.desativado {
+  background-color: #9FAAB5;
+  color: #798A9F;
 }
 
 /* Estilos para telas menores que 768px (dispositivos móveis) */
@@ -99,13 +122,12 @@
   }
 
   .jogo img {
-    width: 35%; 
+    width: 35%;
   }
 
   .jogo > .botao {
     width: 25%;
-    height: 50px; 
-    font-size: 14px; 
+    height: 50px;
+    font-size: 14px;
   }
 }
-
