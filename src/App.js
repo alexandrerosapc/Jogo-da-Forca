@@ -5,7 +5,6 @@ function App() {
   return (
     <>
       <Jogo></Jogo>
-      <Chute></Chute>
     </>
   );
 }

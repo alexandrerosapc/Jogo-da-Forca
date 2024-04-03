@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import palavras from "../palavras";
 import Teclado from "./Teclado";
+import Chute from "./Chute";
 
 export default function Jogo() {
   const [palavraEscolhida, setPalavraEscolhida] = useState(null);
@@ -8,6 +9,7 @@ export default function Jogo() {
   const [letrasSelecionadas, setLetrasSelecionadas] = useState([]);
   const [erros, setErros] = useState(0);
   const [jogoFinalizado, setJogoFinalizado] = useState(false);
+  const [palavraChutada, setPalavraChutada] = useState("");
 
   const imagensForca = [
     "assets/forca0.png",
@@ -16,7 +18,7 @@ export default function Jogo() {
     "assets/forca3.png",
     "assets/forca4.png",
     "assets/forca5.png",
-    "assets/forca6.png"
+    "assets/forca6.png",
   ];
 
   function escolherPalavra() {
@@ -36,7 +38,7 @@ export default function Jogo() {
 
   // Adiciona a letra selecionada ao estado de letras selecionadas
   function escolherLetras(letra) {
-    if (!letrasSelecionadas.includes(letra) && !fimDeJogo()) {
+    if (!letrasSelecionadas.includes(letra)) {
       setLetrasSelecionadas([...letrasSelecionadas, letra]);
 
       if (!letraPresente(letra)) {
@@ -52,7 +54,9 @@ export default function Jogo() {
   }
 
   function usuarioGanhou() {
-    return palavraEscolhida.split("").every(letra => letrasSelecionadas.includes(letra))
+    return palavraEscolhida
+      .split("")
+      .every((letra) => letrasSelecionadas.includes(letra));
   }
 
   function usuarioPerdeu() {
@@ -61,6 +65,17 @@ export default function Jogo() {
 
   function fimDeJogo() {
     return jogoFinalizado || usuarioGanhou() || usuarioPerdeu();
+  }
+
+  function chutar() {
+    if (palavraChutada === palavraEscolhida) {
+      setJogoFinalizado(true);
+      setLetrasSelecionadas(palavraEscolhida.split(""));
+    } else {
+      setJogoFinalizado(true);
+      setErros(6)
+    }
+    setPalavraChutada("");
   }
 
   return (
@@ -73,17 +88,18 @@ export default function Jogo() {
       </div>
       <div className="palavra-escolhida">
         {palavraEscolhida && (
-          <p className={`${usuarioGanhou() ? "acertou" : ""} ${usuarioPerdeu() ? "errou" : ""}`}>
-            {usuarioPerdeu() ? (
-              <span>{palavraEscolhida}</span>
-            ) : (
-              palavraEscolhida.split("").map((letra, index) => (
-                <span key={index}>
-                  {letrasSelecionadas.includes(letra) || letra === " " ? letra : " _ "}
-                </span>
-              ))
-            )}
-          </p>
+          <p className={`${(jogoFinalizado && usuarioGanhou()) ? "acertou" : ""} ${(jogoFinalizado && usuarioPerdeu()) ? "errou" : ""}`}>
+          {jogoFinalizado ? (
+            <span>{palavraEscolhida}</span>
+          ) : (
+            palavraEscolhida.split("").map((letra, index) => (
+              <span key={index}>
+                {letrasSelecionadas.includes(letra) || letra === " " ? letra : " _ "}
+              </span>
+            ))
+          )}
+        </p>
+        
         )}
       </div>
       <Teclado
@@ -92,6 +108,11 @@ export default function Jogo() {
         setLetrasSelecionadas={setLetrasSelecionadas}
         escolherLetras={escolherLetras}
         fimDeJogo={fimDeJogo}
+      />
+      <Chute
+        setPalavraChutada={setPalavraChutada}
+        palavraChutada={palavraChutada}
+        chutar={chutar}
       />
     </>
   );
